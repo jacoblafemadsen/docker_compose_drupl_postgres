@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  drupal-dca1:
+    image: drupal:8
+    ports:
+      - '8080:80'
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+  postgres-dca1:
+    image: postgres:11
+    environment:
+      - POSTGRES_DB=drupal
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
